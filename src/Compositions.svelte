@@ -11,6 +11,14 @@
           limit $count
       `;
 
+  const weight_aql = `select
+a_a/data[at0002]/events[at0003]/data[at0001]/items[at0004]/value/magnitude,
+a_a/data[at0002]/events[at0003]/time/value
+from
+composition a
+contains observation a_a[openEHR-EHR-OBSERVATION.body_weight.v*]
+order by a_a/data[at0002]/events[at0003]/time/value desc`;
+
   var queryParams = {};
   queryParams.count = 25;
 
